@@ -1,6 +1,6 @@
 package solid;
 
-class LibraryItem {
+public class LibraryItem {
     String title;
     String type;
     boolean checkedOut;
