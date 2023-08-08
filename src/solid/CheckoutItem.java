@@ -1,17 +1,9 @@
 package solid;
 
 public class CheckoutItem {
-	public double calculateLateFee(int daysLate, LibraryItem item) {
+	public double calculateLateFee(int daysLate, double customFee) {
         // Calculate late fee based on item type
-        if (item.type == "BOOK") {
-            return daysLate * 0.25;
-        } else if (item.type == "DVD") {
-            return daysLate * 0.50;
-        } else if (item.type != "DVD" && item.type != "BOOK") {
-        	return daysLate * 2;
-        }else {
-        	return 0.0;
-        }    
+        return daysLate * customFee;
     }
     
   

@@ -18,10 +18,10 @@ public class LibraryApp {
         check.returnItem(disc);
         check.returnItem(Vinyl);
 
-        double bookLateFee = check.calculateLateFee(5,book);
-        double dvdLateFee = check.calculateLateFee(3,dvd);
-        double discLateFee = check.calculateLateFee(7,disc);
-        double vinylLateFee = check.calculateLateFee(10,Vinyl);
+        double bookLateFee = check.calculateLateFee(5,0.5);
+        double dvdLateFee = check.calculateLateFee(3,0.25);
+        double discLateFee = check.calculateLateFee(7,2);
+        double vinylLateFee = check.calculateLateFee(10,1.5);
 
         System.out.println("Late fee for book: $" + bookLateFee);
         System.out.println("Late fee for DVD: $" + dvdLateFee);
