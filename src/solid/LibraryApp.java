@@ -1,27 +1,37 @@
 package solid;
 
+import solidInterfaces.LibraryItem;
+import solidModels.LibraryBook;
+import solidModels.LibraryDVD;
+import solidModels.LibraryDisc;
+import solidModels.LibraryVinyl;
+
 public class LibraryApp {
     public static void main(String[] args) {
-        LibraryItem book = new LibraryItem("Introduction to Java", "BOOK");
-        LibraryItem dvd = new LibraryItem("Action Movie", "DVD");
-        LibraryItem disc = new LibraryItem("Luis Miguel Disc", "DISC");
-        LibraryItem Vinyl = new LibraryItem("Old Vinyl", "VINYL");
-        CheckoutItem check = new CheckoutItem();
+    	LibraryItem book = new LibraryBook("Introduction to Java", "BOOK", false);
+        LibraryItem dvd = new LibraryDVD("Action Movie", "DVD",false);
+        LibraryItem disc = new LibraryDisc("Luis Miguel Disc", "DISC",false);
+        LibraryItem vinyl = new LibraryVinyl("Old Vinyl", "VINYL",false);
+        
+        CheckoutItem checkbook = new CheckoutItem(book);
+        CheckoutItem checkdvd = new CheckoutItem(dvd);
+        CheckoutItem checkdisc = new CheckoutItem(disc);
+        CheckoutItem checkVinyl = new CheckoutItem(vinyl);
 
-        check.checkout(book);
-        check.checkout(dvd);
-        check.checkout(disc);
-        check.checkout(Vinyl);
+        book.setAvailable(checkbook.checkout(book.checkTitle(), book.checkAvailable()));
+        book.setAvailable(checkdvd.checkout(dvd.checkTitle(), dvd.checkAvailable()));
+        book.setAvailable(checkdisc.checkout(disc.checkTitle(), disc.checkAvailable()));
+        book.setAvailable(checkVinyl.checkout(vinyl.checkTitle(), vinyl.checkAvailable()));
 
-        check.returnItem(book);
-        check.returnItem(dvd);
-        check.returnItem(disc);
-        check.returnItem(Vinyl);
+        book.setAvailable(checkbook.returnItem(book.checkTitle(), book.checkAvailable()));
+        book.setAvailable(checkdvd.returnItem(dvd.checkTitle(), dvd.checkAvailable()));
+        book.setAvailable(checkdisc.returnItem(disc.checkTitle(), disc.checkAvailable()));
+        book.setAvailable(checkVinyl.returnItem(vinyl.checkTitle(), vinyl.checkAvailable()));
 
-        double bookLateFee = check.calculateLateFee(5,0.5);
-        double dvdLateFee = check.calculateLateFee(3,0.25);
-        double discLateFee = check.calculateLateFee(7,2);
-        double vinylLateFee = check.calculateLateFee(10,1.5);
+        double bookLateFee = checkbook.calculateLateFee(5,0.5);
+        double dvdLateFee = checkdvd.calculateLateFee(3,0.25);
+        double discLateFee = checkdisc.calculateLateFee(7,2);
+        double vinylLateFee = checkVinyl.calculateLateFee(10,1.5);
 
         System.out.println("Late fee for book: $" + bookLateFee);
         System.out.println("Late fee for DVD: $" + dvdLateFee);

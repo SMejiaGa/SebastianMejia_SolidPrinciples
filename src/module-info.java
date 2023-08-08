@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Sebastian
- *
- */
-module solid {
-}

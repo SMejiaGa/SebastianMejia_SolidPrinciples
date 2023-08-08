@@ -1,7 +1,6 @@
 package solidInterfaces;
-import solid.LibraryItem;
 
 public interface Inventory {
-	void checkout(LibraryItem item);
-	void returnItem(LibraryItem item);
+	boolean checkout(String title, boolean isChecked);
+	boolean returnItem(String title, boolean isChecked);
 }
