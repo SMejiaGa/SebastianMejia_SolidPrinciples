@@ -1,17 +1,21 @@
 package solid;
+
+import solidEnums.ItemType;
+
 public class LibraryApp {
     public static void main(String[] args) {
         LibraryItem book = new LibraryItem("Introduction to Java", ItemType.BOOK);
         LibraryItem dvd = new LibraryItem("Action Movie", ItemType.DVD);
+        CheckoutItem check = new CheckoutItem();
 
-        book.checkout();
-        dvd.checkout();
+        check.checkout(book);
+        check.checkout(dvd);
 
-        book.returnItem();
-        dvd.returnItem();
+        check.returnItem(book);
+        check.returnItem(dvd);
 
-        double bookLateFee = book.calculateLateFee(5);
-        double dvdLateFee = dvd.calculateLateFee(3);
+        double bookLateFee = check.calculateLateFee(5,book);
+        double dvdLateFee = check.calculateLateFee(3,dvd);
 
         System.out.println("Late fee for book: $" + bookLateFee);
         System.out.println("Late fee for DVD: $" + dvdLateFee);
