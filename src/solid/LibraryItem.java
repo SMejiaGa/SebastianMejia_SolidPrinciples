@@ -20,7 +20,7 @@ class LibraryItem {
             return 0.0;
         }
     }
-    aaaaaaaaaaaaaa
+  
     public void checkout() {
         if (!checkedOut) {
             checkedOut = true;
