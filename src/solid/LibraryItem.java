@@ -1,12 +1,11 @@
 package solid;
-import solidEnums.ItemType;
 
 class LibraryItem {
     String title;
-    ItemType type;
+    String type;
     boolean checkedOut;
 
-    public LibraryItem(String title, ItemType type) {
+    public LibraryItem(String title, String type) {
         this.title = title;
         this.type = type;
         this.checkedOut = false;
